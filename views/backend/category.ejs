@@ -30,6 +30,9 @@
                         <th>Category Photo</th>
                         <th>Category </th>
                         <th>Category Url</th>
+                        <th>Category Title</th>
+                        <th>Category Meta Keyword</th>
+                        <th>Category Meta Desc</th>
                         <th>Category Details</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -50,6 +53,11 @@
                         </td>                      
                         <td><%=y.category%></td>
                         <td><%=y.categoryUrl%></td>
+
+                        <td><%=y.categoryTitle%></td>
+                        <td><%=y.categoryMeta%></td>
+                        <td><%=y.categoryDesc%></td>
+
                         <td><%-y.categoryDetails.slice(0, 200)-%></td>
                         <td>
                            <a class="btn btn-primary" href="/admin/category/edit/<%=y.category%>">Edit</a> </td>

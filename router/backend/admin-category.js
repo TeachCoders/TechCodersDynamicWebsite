@@ -43,10 +43,13 @@ router.get('/add-category/', (req, res)=>{
 router.post('/add-category/',  upload.single('category_photo'), (req, res)=>{
     if(!req.file){
         catModel.create({
-            category : req.body.category,
-            categoryUrl :req.body.category_url,
-            //categoryPhoto:req.file.filename,
-            categoryDetails:req.body.category_details
+            category        :       req.body.category,
+            categoryUrl     :       req.body.category_url,
+            categoryTitle   :       req.body.category_title,
+            categoryMeta    :       req.body.category_meta_keyword,
+            categoryDesc    :       req.body.category_meta_desc,
+            //categoryPhoto :       req.file.filename,
+            categoryDetails :       req.body.category_details
         })
         .then((x)=>{
             console.log(x)
@@ -56,10 +59,13 @@ router.post('/add-category/',  upload.single('category_photo'), (req, res)=>{
     }
     else{
         catModel.create({
-            category : req.body.category,
-            categoryUrl :req.body.category_url,
-            categoryPhoto:req.file.filename,
-            categoryDetails:req.body.category_details
+            category        :       req.body.category,
+            categoryUrl     :       req.body.category_url,
+            categoryTitle   :       req.body.category_title,
+            categoryMeta    :       req.body.category_meta_keyword,
+            categoryDesc    :       req.body.category_meta_desc,
+            categoryPhoto   :       req.file.filename,
+            categoryDetails :       req.body.category_details
         })
         .then((x)=>{
             console.log(x)
@@ -83,12 +89,16 @@ router.get('/edit/:id', (req, res)=>{
 router.put('/edit/:id', upload.single('category_photo'), (req, res)=>{
     if(!req.file){
         catModel.updateOne({category:req.params.id}, {$set:{
-            category : req.body.category,
-            categoryUrl :req.body.category_url,
-            //categoryPhoto:req.file.filename,
-            categoryDetails:req.body.category_details
+            category            :   req.body.category,
+            categoryUrl         :   req.body.category_url,
+            categoryTitle       :   req.body.category_title,
+            categoryMeta        :   req.body.category_meta_keyword,
+            categoryDesc        :   req.body.category_meta_desc,
+            //categoryPhoto     :   req.file.filename,
+            categoryDetails     :   req.body.category_details
         }})
         .then((x)=>{
+            console.log(x)
             req.flash('sucess', 'Your Data has been updated on Data base')
             res.redirect('/admin/category/')
         })
@@ -98,10 +108,13 @@ router.put('/edit/:id', upload.single('category_photo'), (req, res)=>{
     }
     else{
         catModel.updateOne({category:req.params.id}, {$set:{
-            category : req.body.category,
-            categoryUrl :req.body.category_url,
-            categoryPhoto:req.file.filename,
-            categoryDetails:req.body.category_details
+            category        :       req.body.category,
+            categoryUrl     :       req.body.category_url,
+            categoryTitle   :       req.body.category_title,
+            categoryMeta    :       req.body.category_meta_keyword,
+            categoryDesc    :       req.body.category_meta_desc,
+            categoryPhoto   :       req.file.filename,
+            categoryDetails :       req.body.category_details
         }})
         .then((x)=>{
             res.redirect('/admin/category/')

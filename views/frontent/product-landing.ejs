@@ -1,10 +1,14 @@
 <%-include('common/head.ejs')-%>
 
 <%for (i = 0; i < 1; i++) {%>   
-  <title><%=x[i].productTitle%></title>
-  <meta name="description" content="<%=x[i].productMetaDescrition%>" />
-  <meta name="keywords" content="<%=x[i].productMetaKeyword%>" />
+  <title><%=a.categoryTitle%></title>
+  <meta name="description" content="<%=a.categoryMeta%>" />
+  <meta name="keywords" content="<%=a.categoryDesc%>" />
 <%}%> 
+
+
+
+
 
    </head>
    <body>
@@ -27,8 +31,8 @@
                  <div class="card mb-4">
                    <div class="card-body">
                      <h5 class="card-title"><%=y.productHeading%></h5>
-                     <!--p class="card-text"><%-y.productDetails.slice(0, 250)-%></p--><br>
-                     <a href="/course/<%=y.productCat%>/<%=y.productUrl%>" class="btn btn-primary">View 2More</a>
+                     <p class="card-text"><%-y.productDetails.slice(0, 250)-%></p><br>
+                     <a href="/course/<%=y.productCat%>/<%=y.productUrl%>" class="btn btn-primary">View More</a>
                    </div>
                  </div>
                </div>

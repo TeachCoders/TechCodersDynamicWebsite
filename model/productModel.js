@@ -12,6 +12,8 @@ let pagSchema = mongoose.Schema({
     productyoutube:String,
     productDetails:String
 
+
+
 })
 
 
